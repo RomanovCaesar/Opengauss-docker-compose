@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  opengauss:
+    image: ${OPENGAUSS_IMAGE}
+    container_name: ${CONTAINER_NAME}
+    restart: always
+    privileged: true
+    ports:
+      - "${DB_PORT}:5432"
+    environment:
+      GS_NODENAME: ${GS_NODENAME}
+      GS_USERNAME: ${GS_USERNAME}
+      GS_PASSWORD: ${GS_PASSWORD}
+    volumes:
+      - ./data:/var/lib/opengauss/data
+    healthcheck:
+      test: ["CMD-SHELL", "su - omm -c \"gsql -d postgres -p 5432 -c 'select 1' >/dev/null 2>&1\""]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
