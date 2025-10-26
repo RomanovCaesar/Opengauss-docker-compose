@@ -1,4 +1,7 @@
 Usage: 
+
+**All the commands below must be executed by root user.**
+
 Install the latest version of docker:
 ```bash
 curl -fsSL https://get.docker.com | sh
