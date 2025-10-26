@@ -20,7 +20,7 @@ wget https://raw.githubusercontent.com/RomanovCaesar/Opengauss-docker-compose/ma
 ```
 > ⚠️ **Warning：**
 >
-> * **These files are only guaranteed to run smoothly on amd64 systems. Running results are not guaranteed on arm64 systems.**
+> * **These files are only guaranteed to run smoothly on amd64 systems. Executing results are not guaranteed on arm64 systems.**
 > * **Don't forget to use your own password for security reasons!!! Password are required to contain lowercase letters, uppercase letters, numeric and special characters.**
 
 Start the container:
@@ -35,9 +35,20 @@ su - omm
 gsql
 ```
 
-Connect with clients（Navicat/psql）
+Do some tests after first connect:
+```sql
+\l       -- View databases
+\du      -- View roles
+```
+
+Connect with clients (Navicat/psql):
+
 Type：PostgreSQL
+
 Host：127.0.0.1（or server IP）
+
 Port：5432
+
 User：gaussdb
+
 Password：Aa123456!@#Db（If modified, change to the new password）
